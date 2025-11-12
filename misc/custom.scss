@@ -1,0 +1,240 @@
+// put your custom CSS here!
+
+
+/*
+  Minimal Theme for Quartz v4
+  Translated from your publish.css
+*/
+
+
+// --- Base Variables ---
+:root {
+  // Typography
+  --font-heading: "Urbanist", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+  --monospace: "Courier Prime", ui-monospace;
+  --font-text-size: 16px;
+  --font-small: 14px;
+  --font-smaller: 13px;
+  --normal-weight: 400;
+  --bold-weight: 600;
+
+  // Heading styles
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 500;
+  --h5-weight: 500;
+  --h6-weight: 400;
+  --h5-variant: small-caps;
+  --h6-variant: small-caps;
+
+  // Spacing
+  --line-height: 1.2;
+
+  // --- Light Theme Colors ---
+  &, &[data-theme="light"] {
+    --orange: #8B5A3C;
+    --purple: #6B4C93;
+    --red: #b86970;
+    --yellow: #b89865;
+    --green: #90b865;
+    --cyan: #65b8ac;
+    --blue: #6594b8;
+    --pink: #b86586;
+
+    // Backgrounds
+    --light: #FFF;        // bg1
+    --lightgray: #F5F5F5; // bg2
+    --gray: #E5E5E5;      // bg3
+    --dark: #0F0F0F;      // tx1
+    --dark-rgb: 15, 15, 15;
+
+    // Text
+    --secondary: #828282; // tx2
+    --tertiary: #B5B5B5;  // tx3
+    
+    // Accents
+    --primary: var(--purple);
+    --highlight: hsla(201, 50%, 40%, 30%);
+  }
+
+  // --- Dark Theme Colors ---
+  &[data-theme="dark"] {
+    --orange: #b88465;
+    --purple: #a285d4;
+    --red: #b86970;
+    --yellow: #b89865;
+    --green: #90b865;
+    --cyan: #65b8ac;
+    --blue: #6594b8;
+    --pink: #b86586;
+
+    // Backgrounds
+    --dark: #262626;     // bg1
+    --darkgray: #212121; // bg2
+    --gray: hsla(0,0,55%,0.12); // bg3
+    --light: #D1D1D1;    // tx1
+    --light-rgb: 209, 209, 209;
+
+    // Text
+    --secondary: #999999; // tx2
+    --tertiary: #595959;  // tx3
+    
+    // Accents
+    --primary: var(--purple);
+    --highlight: hsla(201, 70%, 40%, 30%);
+  }
+}
+
+// --- Global Styles ---
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-text-size);
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+.page .popover-hint {
+  line-height: var(--line-height);
+}
+
+// --- Typography ---
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  margin-top: 1em;
+  margin-bottom: 0.6em;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: var(--h1-weight);
+  color: var(--orange);
+}
+
+h2 {
+  font-size: 1.75em;
+  font-weight: var(--h2-weight);
+  color: var(--orange);
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: var(--h3-weight);
+  color: var(--purple);
+}
+
+h4 {
+  font-size: 1.25em;
+  font-weight: var(--h4-weight);
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: var(--h5-weight);
+  font-variant: var(--h5-variant);
+}
+
+h6 {
+  font-size: 1em;
+  font-weight: var(--h6-weight);
+  font-variant: var(--h6-variant);
+  color: var(--secondary);
+}
+
+a {
+  color: var(--primary);
+  &:hover {
+    color: var(--purple);
+  }
+}
+
+strong {
+  font-weight: var(--bold-weight);
+}
+
+// --- Elements ---
+a[data-tag] {
+  background-color: var(--light);
+  color: var(--purple);
+  font-size: var(--font-smaller);
+  font-weight: var(--h6-weight);
+  border-radius: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--gray);
+  text-decoration: none;
+}
+
+blockquote {
+  border-left: 2px solid var(--purple);
+  padding-left: 1.5em;
+  color: var(--secondary);
+  margin-left: 0;
+}
+
+pre > code {
+  background-color: var(--lightgray);
+  border-radius: 4px;
+  padding: 1em;
+  display: block;
+}
+
+:not(pre) > code {
+  color: var(--dark);
+  font-size: .85em;
+  background-color: var(--lightgray);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block-start: 1em;
+
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid var(--gray);
+  }
+
+  thead th {
+    background-color: var(--lightgray);
+  }
+}
+
+// Callouts
+.callout {
+  border-radius: 12px;
+  border: 1px solid;
+  background: var(--lightgray);
+  padding: 1em;
+
+  &[data-callout="writing-samples"] {
+    border-color: var(--yellow);
+  }
+}
+
+// Special classes from publish.css
+.highlight {
+  background: hsla(258, 34%, 71%, 0.1);
+  color: var(--purple);
+  font-weight: 500;
+  padding: 0.1em 0.25em;
+  border-radius: 3px;
+}
+
+.key-term {
+  background: hsla(25, 35%, 70%, 0.1);
+  color: var(--orange);
+  font-weight: 500;
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+}
+
+.lead-word {
+  font-variant: small-caps;
+  font-weight: var(--bold-weight);
+  color: var(--orange);
+  letter-spacing: 0.025em;
+}
+

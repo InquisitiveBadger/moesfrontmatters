@@ -1,8 +1,17 @@
+/* Then modules (all before any CSS rules) */
 @use "sass:map";
+
 
 @use "./variables.scss" as *;
 @use "./syntax.scss";
 @use "./callouts.scss";
+
+/* Load your overrides ONCE, as a module (no namespace export needed) */
+// @use "./custom.scss";
+
+/* …rest of your base.scss CSS rules follow… */
+
+
 
 html {
   scroll-behavior: smooth;

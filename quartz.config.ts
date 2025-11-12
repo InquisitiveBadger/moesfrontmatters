@@ -1,6 +1,7 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
+
 /**
  * Quartz 4 Configuration
  *
@@ -8,7 +9,7 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
+    pageTitle: "Moe's Frontmatters",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
@@ -19,13 +20,19 @@ const config: QuartzConfig = {
     baseUrl: "quartz.jzhao.xyz",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
-    theme: {
+    theme: { 
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        header: {
+          name: "Urbanist",
+        },
+        body: {
+          name: "Spectral"
+        },
+        code: {
+          name: "Courier Prime",
+        },
       },
       colors: {
         lightMode: {
@@ -40,14 +47,14 @@ const config: QuartzConfig = {
           textHighlight: "#fff23688",
         },
         darkMode: {
-          light: "#161618",
-          lightgray: "#393639",
-          gray: "#646464",
-          darkgray: "#d4d4d4",
-          dark: "#ebebec",
-          secondary: "#7b97aa",
-          tertiary: "#84a59d",
-          highlight: "rgba(143, 159, 169, 0.15)",
+          light: "#1C1B1A",
+          lightgray: "#282726",
+          gray: "#575653",
+          darkgray: "#CECDC3",
+          dark: "#FFFCF0",
+          secondary: "#79B3C3",
+          tertiary: "#E07A5F",
+          highlight: "#403E3C",
           textHighlight: "#b3aa0288",
         },
       },
@@ -67,7 +74,6 @@ const config: QuartzConfig = {
         keepBackground: false,
       }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
-      Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),

@@ -1,0 +1,572 @@
+/* ===================================================================
+   Minimal Publish → Quartz v4  |  Migrated from publish.css
+   =================================================================== */
+
+
+/* ---------------------------------------------------------------
+   Base Variables from publish.css
+------------------------------------------------------------------ */
+:root {
+  /* === Typography Variables === */
+  --font-heading: "Urbanist", sans-serif;
+  --font-body: "Open Sans", sans-serif;
+  --monospace: "Courier Prime", ui-monospace;
+
+  /* Font sizes */
+  --font-text-size: 16px;
+  --font-small: 14px;
+  --font-smaller: 13px;
+  --font-smallest: 12px;
+  --font-inputs: 13px;
+
+  /* Font weights */
+  --normal-weight: 400;
+  --bold-weight: 600;
+  --link-weight: inherit;
+
+  /* Headings */
+  --page-title-font: var(--font-heading);
+  --page-title-weight: 700;
+  --page-title-line-height: 1.3;
+  --page-title-size: 2em;
+
+  --h1: 2em;
+  --h2: 1.75em;
+  --h3: 1.4em;
+  --h4: 1.25em;
+  --h5: 1em;
+  --h6: 1em;
+
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --h4-weight: 500;
+  --h5-weight: 500;
+  --h6-weight: 400;
+
+  --h1-variant: normal;
+  --h2-variant: normal;
+  --h3-variant: normal;
+  --h4-variant: normal;
+  --h5-variant: small-caps;
+  --h6-variant: small-caps;
+
+  --h1-style: normal;
+  --h2-style: normal;
+  --h3-style: normal;
+  --h4-style: normal;
+  --h5-style: normal;
+  --h6-style: normal;
+
+  /* === Layout & Spacing === */
+  --margin-top: 1em;
+  --margin-bottom: 0.6em;
+  --line-height: 1.2; // Note: base.scss uses 1.6rem, this might conflict
+  --list-padding: 2em;
+  --list-spacing: 0.075em;
+
+  /* Cards */
+  --cards-min-width: 180px;
+  --cards-max-width: 1fr;
+  --cards-mobile-width: 180px;
+  --cards-image-height: 400px;
+  --cards-padding: 1.2em;
+  --cards-image-fit: contain;
+  --cards-background: transparent;
+  --cards-border-width: 1px;
+  --cards-aspect-ratio: auto;
+  --cards-columns: repeat(auto-fit, minmax(var(--cards-min-width), var(--cards-max-width)));
+
+  /* Images */
+  --image-radius: 8px;
+  --img-grid-fit: cover;
+  --img-grid-background: transparent;
+  --img-grid-gap: 0.5rem;
+
+  /* Misc */
+  --border-width: 1px;
+
+  /* Table variables from publish.css */
+  --table-header-border-width: 0;
+  --table-column-first-border-width: 0;
+  --table-column-last-border-width: 0;
+  --table-row-last-border-width: 0;
+  --table-edge-cell-padding-first: 0;
+  --table-edge-cell-padding-last: 10px;
+  --table-cell-padding: 4px 10px;
+  --table-header-size: var(--table-text-size);
+}
+
+/* ---------------------------------------------------------------
+   Light / Dark Variables from publish.css
+------------------------------------------------------------------ */
+:root[data-theme="light"] {
+  --red: #b86970;
+  --yellow: #b89865;
+  --green: #90b865;
+  --cyan: #65b8ac;
+  --blue: #6594b8;
+  --pink: #b86586;
+  --orange: #8B5A3C;
+  --purple: #6B4C93;
+
+  --bg1: #FFF;
+  --bg2: #F5F5F5;
+  --bg3: #E5E5E5;
+
+  --ui1: #E6E6E6;
+  --ui2: #D6D6D6;
+  --ui3: #C2C2C2;
+
+  --tx1: #0F0F0F;
+  --tx2: #828282;
+  --tx3: #B5B5B5;
+
+  --ax1: #6B4C93; /* Regular purple */
+  --ax2: #7A5BA0; /* Hover purple (lighter) */
+  --ax3: #8B5A3C; /* Active orange */
+
+  --hl1: hsla(201, 50%, 40%, 30%);
+
+  --dark-bg-txt: rgba(107, 76, 147, 0.08); /* text highlight color */
+  --dark-border-color: rgba(107, 76, 147, 0.15); /* text border color */
+  --text-highlight: hsla(25, 35%, 70%, 0.15);
+
+  --h1-color: var(--orange);
+  --h2-color: var(--orange);
+  --h3-color: var(--purple);
+  --h4-color: var(--text-normal);
+  --h5-color: var(--text-normal);
+  --h6-color: var(--text-muted);
+
+  --tag-txt: var(--purple);
+  --tag-bg: var(--bg1);
+
+  --sidebar-left-background: var(--bg2);
+  --background-primary: var(--bg1);
+  --background-secondary: var(--bg2);
+  --background-tertiary: var(--bg3);
+  --background-table-rows: var(--bg2);
+  --background-modifier-border: var(--ui1);
+  --background-modifier-border-hover: var(--ui2);
+  --text-normal: var(--tx1);
+  --text-muted: var(--tx2);
+  --text-accent: var(--purple);
+  --text-accent-hover: var(--ax2);
+  --text-selection: var(--hl1);
+  
+  --accent: var(--purple); // Added for compatibility with original _minimaltheme
+}
+
+:root[data-theme="dark"] {
+  --red: #b86970;
+  --yellow: #b89865;
+  --green: #90b865;
+  --cyan: #65b8ac;
+  --blue: #6594b8;
+  --pink: #b86586;
+  --orange: #b88465;
+  --purple: #a285d4;
+
+  --bg1: #262626;
+  --bg2: #212121;
+  --bg3: hsla(0, 0, 55%, 0.12);
+
+  --ui1: #333333;
+  --ui2: #3B3B3B;
+  --ui3: #595959;
+
+  --tx1: #D1D1D1;
+  --tx2: #999999;
+  --tx3: #595959;
+  --txt4: #FFFFFF;
+
+  --ax1: #8465b8; /* Regular purple */
+  --ax2: #a285d4; /* Hover purple */
+  --ax3: #b88465; /* Active orange */
+
+  --hl1: hsla(201, 70%, 40%, 30%);
+
+  --dark-bg-txt: hsla(258, 34%, 71%, 0.1);
+  --dark-border-color: hsla(258, 34%, 71%, 0.25);
+  --text-highlight: hsla(25, 35%, 70%, 0.15);
+
+  --h1-color: var(--orange);
+  --h2-color: var(--orange);
+  --h3-color: var(--purple);
+  --h4-color: var(--text-normal);
+  --h5-color: var(--text-normal);
+  --h6-color: var(--text-muted);
+
+  --tag-txt: var(--purple);
+  --tag-bg: var(--bg1);
+
+  --sidebar-left-background: var(--bg2);
+  --background-primary: var(--bg1);
+  --background-secondary: var(--bg2);
+  --background-tertiary: var(--bg3);
+  --background-table-rows: var(--bg2);
+  --background-modifier-border: var(--ui1);
+  --background-modifier-border-hover: var(--ui2);
+  --text-normal: var(--tx1);
+  --text-muted: var(--tx2);
+  --text-accent: var(--purple);
+  --text-accent-hover: var(--ax2);
+  --text-selection: var(--hl1);
+  --text-code: var(--txt4);
+
+  --accent: var(--purple); // Added for compatibility
+}
+
+
+/* ---------------------------------------------------------------
+   Body / Headings / Links (Migrated)
+------------------------------------------------------------------ */
+body {
+  font-family: var(--font-body);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-size: var(--font-text-size);
+  line-height: var(--line-height); // From publish.css
+}
+
+.page h1,
+.page h2,
+.page h3,
+.page h4,
+.page h5,
+.page h6 {
+  font-family: var(--font-heading);
+  line-height: var(--line-height);
+  margin-top: var(--margin-top);
+  margin-bottom: var(--margin-bottom);
+}
+
+.page h1 {
+  font-size: var(--page-title-size);
+  font-weight: var(--h1-weight);
+  color: var(--h1-color);
+  border: none;
+}
+.page h2 {
+  font-size: var(--h2);
+  font-weight: var(--h2-weight);
+  color: var(--h2-color);
+}
+.page h3 {
+  font-size: var(--h3);
+  font-weight: var(--h3-weight);
+  color: var(--h3-color);
+}
+.page h4 {
+  font-weight: var(--h4-weight);
+  color: var(--h4-color);
+}
+.page h5 {
+  font-weight: var(--h5-weight);
+  color: var(--h5-color);
+}
+.page h6 {
+  font-weight: var(--h6-weight);
+  color: var(--h6-color);
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: var(--text-accent-hover);
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------
+   Tags (Migrated)
+------------------------------------------------------------------ */
+a.tag,
+a.tag-link {
+  // Targeting both for safety, .tag-link is from base.scss
+  background: var(--tag-bg);
+  color: var(--tag-txt);
+  font-size: var(--font-smallest);
+  font-weight: var(--h6-weight);
+  border-radius: 4px;
+  padding: 2px 8px;
+  border: 1px solid var(--ui1);
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Callouts (Migrated Custom)
+------------------------------------------------------------------ */
+.callout {
+  border-radius: 12px;
+  border: 1px solid;
+  // Fallback border
+  border-color: var(--background-modifier-border);
+  // Fallback background
+  background: var(--background-secondary);
+}
+
+// Custom callout: writing-samples
+.callout[data-callout="writing-samples"] {
+  --callout-icon: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="m10 13-2 2 2 2"></path><path d="m14 17 2-2-2-2"></path></svg>');
+  border-color: var(--yellow);
+  --color: var(--yellow); // For title text
+}
+
+// Custom callout: contact
+.callout[data-callout="contact"] {
+  --callout-icon: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>');
+  border-color: var(--purple);
+  --color: var(--purple); // For title text
+}
+
+// General callout[tip] styling from publish.css
+.callout[data-callout="tip"] .callout-title {
+  font-weight: 600;
+}
+.callout[data-callout="tip"] .callout-content {
+  font-size: 0.95em;
+  line-height: 1.55;
+}
+
+/* ---------------------------------------------------------------
+   Cards (Migrated from publish.css)
+------------------------------------------------------------------ */
+.cards table {
+  width: 100%;
+  border-spacing: 0.75rem;
+  border-collapse: separate;
+  --table-width: 100%;
+  --table-edge-cell-padding-first: calc(var(--cards-padding) / 2);
+  --table-edge-cell-padding-last: calc(var(--cards-padding) / 2);
+  --table-cell-padding: calc(var(--cards-padding) / 3) calc(var(--cards-padding) / 2);
+  line-height: 1.3;
+}
+.cards table tbody {
+  clear: both;
+  padding: 0.5rem 0;
+  display: grid;
+  grid-template-columns: var(--cards-columns);
+  grid-column-gap: 0.75rem;
+  grid-row-gap: 0.75rem;
+}
+.cards table > tbody > tr {
+  background-color: var(--cards-background);
+  border: var(--cards-border-width) solid var(--background-modifier-border);
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0 0 calc(var(--cards-padding) / 3) 0;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow 0.15s linear;
+  max-width: var(--cards-max-width);
+}
+.cards table > tbody > tr:hover {
+  border: var(--cards-border-width) solid var(--background-modifier-border-hover);
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.05), 0 1px 3px 1px rgba(0, 0, 0, 0.025);
+  transition: box-shadow 0.15s linear;
+}
+.cards table tbody > tr > td:first-child {
+  font-weight: var(--bold-weight);
+  border: none;
+}
+.cards table tbody > tr > td:first-child a {
+  display: block;
+}
+.cards table tbody > tr > td:last-child {
+  border: none;
+}
+.cards table tbody > tr > td:not(:first-child) {
+  font-size: calc(var(--table-text-size) * 0.9);
+  color: var(--text-muted);
+}
+.cards table tbody > tr > td > * {
+  padding: calc(var(--cards-padding) / 3) 0;
+}
+.cards table tbody > tr > td:not(:last-child):not(:first-child) {
+  padding: 4px 0;
+  border-bottom: 1px solid var(--background-modifier-border);
+  width: calc(100% - var(--cards-padding));
+  margin: 0 calc(var(--cards-padding) / 2);
+}
+.cards table tbody > tr > td a {
+  text-decoration: none;
+}
+.cards table tbody > tr > td:has(img) {
+  padding: 0 !important;
+  background-color: var(--background-secondary);
+  display: block;
+  margin: 0;
+  width: 100%;
+}
+.cards table tbody > tr > td img {
+  aspect-ratio: var(--cards-aspect-ratio);
+  width: 100%;
+  object-fit: var(--cards-image-fit);
+  max-height: var(--cards-image-height);
+  background-color: var(--background-secondary);
+  vertical-align: bottom;
+}
+.cards table thead {
+  display: none;
+}
+
+/* ---------------------------------------------------------------
+   Images (Migrated)
+------------------------------------------------------------------ */
+img {
+  border-radius: var(--image-radius);
+  max-width: 100%;
+  height: auto;
+}
+
+// Banner image
+.page img[alt~="banner"] {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 0;
+}
+
+// Special image styles
+img[src$="#outline"],
+span[src$="#outline"] img {
+  border: 1px solid var(--ui1);
+}
+
+img[src$="#interface"],
+span[src$="#interface"] img {
+  border: 1px solid var(--ui1);
+  box-shadow: 0 0.5px 0.9px rgba(0, 0, 0, 0.021), 0 1.3px 2.5px rgba(0, 0, 0, 0.03),
+    0 3px 6px rgba(0, 0, 0, 0.039), 0 10px 20px rgba(0, 0, 0, 0.06);
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: var(--radius-m); // Using var from original file
+}
+
+:root[data-theme="dark"] img[src$="#invert"],
+:root[data-theme="dark"] span[src$="#invert"] img {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: screen;
+}
+
+:root[data-theme="light"] img[src$="#invertW"],
+:root[data-theme="light"] span[src$="#invertW"] img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+img[src$="#circle"],
+span[src$="#circle"] img {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+/* ---------------------------------------------------------------
+   Inline Styling (Migrated)
+------------------------------------------------------------------ */
+.highlight {
+  background: hsla(258, 34%, 71%, 0.1);
+  color: var(--purple);
+  font-weight: 500;
+  padding: 0.1em 0.25em;
+  border-radius: 3px;
+  transition: background 0.15s ease;
+}
+
+.key-term {
+  background: hsla(25, 35%, 70%, 0.1);
+  color: var(--orange);
+  font-weight: 500;
+  padding: 0.05em 0.2em;
+  border-radius: 2px;
+}
+:root[data-theme="dark"] .key-term {
+  background: hsla(25, 35%, 70%, 0.15);
+}
+
+.lead-word {
+  font-variant: small-caps;
+  font-weight: var(--bold-weight);
+  color: var(--orange);
+  letter-spacing: 0.025em;
+}
+
+.contact {
+  font-family: var(--monospace);
+  color: var(--purple);
+  font-weight: 500;
+  background: hsla(258, 34%, 71%, 0.05);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  border: 1px solid hsla(258, 34%, 71%, 0.2);
+  font-size: 0.95em;
+}
+:root[data-theme="dark"] .contact {
+  color: var(--ax2);
+  background: var(--dark-bg-txt);
+  border-color: var(--dark-border-color);
+}
+
+/* ---------------------------------------------------------------
+   Tables (Migrated)
+------------------------------------------------------------------ */
+table {
+  border-collapse: collapse;
+  border: var(--border-width) solid var(--background-modifier-border);
+  margin-block: 1em;
+  width: 100%;
+}
+th,
+td {
+  padding: var(--table-cell-padding);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+td:first-child,
+th:first-child {
+  padding-left: var(--table-edge-cell-padding-first);
+}
+td:last-child,
+th:last-child {
+  padding-right: var(--table-edge-cell-padding-last);
+}
+tr:nth-child(even) {
+  background: var(--background-table-rows);
+}
+
+/* ---------------------------------------------------------------
+   Sidebar & Footer (Migrated)
+------------------------------------------------------------------ */
+.sidebar {
+  background: var(--sidebar-left-background);
+  color: var(--tx2);
+}
+
+// Site title in sidebar
+.sidebar .site-title a {
+  font-family: var(--font-heading);
+  color: var(--orange);
+  font-weight: var(--bold-weight);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.75em;
+  color: var(--tx3);
+  border-top: 1px solid var(--bg3);
+  padding-top: 1em;
+  margin-top: 2em;
+}
+footer::before {
+  content: "© 2025, Moe Abbas. Made with caffeine and markdown magic | ";
+  color: var(--text-faint);
+  font-size: 12px;
+}

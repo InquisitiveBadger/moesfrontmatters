@@ -1,3 +1,521 @@
-@use "./base.scss";
+@use "sass:map";
 
-// put your custom CSS here!
+@use "./base.scss";
+@use "./variables.scss" as *;
+@use "./syntax.scss";
+@use "./callouts.scss";
+
+/* TEMP – prove load, then delete after verify */
+
+/*
+  SCSS migration from style-settings.json for Quartz 4
+  Generated based on "minimal-style", "minimal-advanced", "minimal-cards-style",
+  and "modular-css-layout" properties from your JSON.
+*/
+
+// ---
+// 1. Dark Mode Color Overrides
+// ---
+:root[saved-theme="dark"] {
+  // Base Colors
+  --light: #1C1B1A; // from minimal-style@@bg1@@dark
+  --lightgray: #282726; // from minimal-style@@bg2@@dark
+  --darkestgray: #343331;
+  --gray: #575653; // from minimal-style@@ui2@@dark
+  --darkergray: #878580;
+  --darkgray: #CECDC3; // from minimal-style@@tx1@@dark
+  --dark: #FFFCF0; // from minimal-style@@sp1@@dark
+  --secondary: #79B3C3; // from minimal-style@@ax1@@dark
+  --tertiary: #E07A5F; // from minimal-style@@ax2@@dark
+  --highlight: #403E3C; // from minimal-style@@hl1@@dark
+
+
+  // Text Colors
+  --textHighlight: #b3aa0288; // Your original value
+
+  // Link Colors
+  --secondary: #79B3C3; // Mapped to link-color
+  --tertiary: #E07A5F; // Mapped to link-color-hover & link-external-color
+  --extlink: #E07A5F;
+  --intlink: #79B3C3;
+
+  // Checkbox
+  --secondary: #E07A5F; // Mapped to checkbox-color
+
+  // Code
+  --code-background: #1C1B1A;
+  --code-comment: #575653;
+  --code-function: #DA702C;
+  --code-keyword: #879A39;
+  --code-operator: #878580;
+  --code-property: #4385BE;
+  --code-punctuation: #878580;
+  --code-string: #3AA99F;
+  --code-tag: #878580;
+
+  // Specific Element Colors
+  h1 { color: #FFFCF0; }
+  h2 { color: #E07A5F; }
+  h3 { color: #CECDC3; }
+  h4 { color: #B7B5AC; } 
+  h5 { color: #878580; } 
+
+  strong { color: #CECDC3; }
+  em { color: #B7B5AC; }
+
+  blockquote {
+    color: #79B3C3;
+    border-color: #79B3C3;
+    background-color: #262A2B;
+  }
+
+  // Tags
+
+  a.tag-link {
+    color: var(--darkergray);
+    background: var(--darkestgray);
+    &:hover {
+      color: var(--light);
+      background: var(--intlink);
+    }
+  }
+
+  // Checkbox
+
+  input[type="checkbox"] {
+    &:checked {
+      border-color: #E07A5F;
+      background-color: #E07A5F;
+    }
+  }
+
+.callout-title > .callout-title-inner > p {
+  color: var(--darkgray);
+
+  }
+
+}
+
+// Bold Keyword
+
+.bold-keyword {
+  color: var(--dark);
+}
+
+// LAYOUT
+
+// Grid
+  .grid-card {
+    background-color: var(--dark);
+    border-color: var(--gray);
+
+    &:hover {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+
+      h3, p {
+        color: var(--dark);
+      }
+    }
+  }
+
+// Divider
+
+hr {
+  background-color: var(--darkestgray)
+}
+
+// ---
+// 2. Light Mode Color Overrides
+// ---
+:root[saved-theme="light"] {
+  // Base Colors
+  --light: #F2F0E5; // from minimal-style@@bg1@@light
+  --lightgray: #F2F0E5; // from minimal-style@@bg2@@light
+  --gray: #A6A59E; // from minimal-style@@ui2@@light
+  --darkgray: #100F0F; // from minimal-style@@tx1@@light
+  --darkergray: #878580;
+  --darkestgray: #343331;
+  --dark: #1C1B1A; // from minimal-style@@sp1@@light
+  --secondary: #205EA6; // from minimal-style@@ax1@@light
+  --tertiary: #BC5215; // from minimal-style@@ax2@@light
+  --highlight: #CECDC3; // from minimal-style@@hl1@@light
+
+  // Text Colors
+  --textHighlight: #fff2a8; // Quartz default light
+
+  // Link Colors
+  --secondary: #205EA6; // Mapped to link-color
+  --tertiary: #BC5215; // Mapped to link-color-hover & link-external-color
+
+  // Checkbox
+  --secondary: #BC5215; // Mapped to checkbox-color
+
+  // Code
+  --code-tag: #6F6E69;
+
+  // Specific Element Colors
+  h1 { color: #100F0F; }
+  h2 { color: #79B3C3; }
+  h3 { color: #575653; }
+  h4 { color: #878580; }
+  h5 { color: #A6A59E; }
+
+  strong { color: #100F0F; }
+  em { color: #1C1B1A; }
+
+  a.tag-link {
+    color: #6F6E69;
+    background: #E6E4D9;
+    &:hover {
+      background: #205EA6;
+    }
+  }
+
+  input[type="checkbox"] {
+    &:checked {
+      border-color: #BC5215;
+      background-color: #BC5215;
+    }
+  }
+
+.callout-title > .callout-title-inner > p {
+  color: var(--darkgray);
+
+  }
+}
+
+hr {
+  background-color: var(--highlight)
+}
+
+// Grid
+  .grid-card {
+    background-color: var(--dark);
+    border-color: var(--gray);
+
+    &:hover {
+      background-color: var(--secondary);
+      border-color: var(--secondary);
+
+      h3, p {
+        color: var(--dark);
+      }
+    }
+  }
+
+// ---
+// 3. TYPOGRAPHY, LAYOUT, AND GENERAL STYLES
+// ---
+
+
+
+/// HEADINGS
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5em; // from minimal-style@@heading-spacing
+}
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5em;
+}
+h3 {
+  font-size: 1.50rem;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+}
+h4 {
+  font-size: 1.25rem;
+  // font-weight: normal;
+  margin-bottom: 0.5em;
+}
+h5 {
+  font-size: 1.125rem;
+  font-weight: normal;
+  margin-bottom: 0.5em;
+}
+h6 {
+  font-size: 1rem;
+  margin-bottom: 0.5em;
+}
+
+// PARAGRAPHS
+p {
+  margin-bottom: 1rem; // from minimal-style@@p-spacing
+  font-size: 1rem;
+}
+
+// BLOCKQUOTES
+blockquote {
+  font-style: italic; // from minimal-style@@blockquote-font-style
+  border-left-width: 3px; // from minimal-style@@blockquote-border-thickness
+}
+
+// LISTS
+ul, ol {
+  padding-left: 2em; // from minimal-style@@list-indent
+}
+
+li {
+  padding-top: 0.15em; // from minimal-style@@list-spacing
+  padding-bottom: 0.15em;
+}
+
+// TAGS
+
+a.tag-link {
+    font-size: 0.8rem;
+    padding: 5px;
+}
+
+// INLINE LINKS
+
+a.external {
+  font-weight: normal;
+}
+
+// TABLES
+.table-container {
+  th, td {
+    font-size: 1em; // from minimal-style@@table-text-size
+    text-align: center; // from minimal-style@@table-center
+    font-feature-settings: "tnum" 1; // from minimal-style@@table-tabular
+  }
+
+  tr {
+    border-bottom: 1px solid var(--lightgray); // from minimal-style@@row-lines
+  }
+
+  th, td {
+    border-right: 1px solid var(--lightgray); // from minimal-style@@col-lines
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+// IMAGES
+img {
+  max-width: 350px; // from modular-css-layout-gc@@img-max-width
+  max-height: 800px; // from modular-css-layout-gc@@img-max-height
+}
+
+// WIKILINKS
+
+a.internal {
+  background-color: transparent; // Removes the default highlight
+  padding: 1px 5px; // Removes default padding
+  font-weight: normal;
+}
+
+/* Style for broken links (file not found) */
+a.internal.broken {
+  color: var(--secondary);
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/* * Style for wikilinks inside paragraphs (prose).
+ * This overrides the default 'highlight' style.
+ */
+.prose-link > a.internal {
+  background-color: transparent;
+  color: inherit; /* Inherits the color of the paragraph text */
+  text-decoration: underline;
+  padding: 0;
+  line-height: inherit;
+}
+
+/* Optional: Also style broken links in paragraphs this way */
+.prose-link > a.internal.broken {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  opacity: 0.7;
+}
+
+.sidebar.left {
+
+  li {
+    font-size: 0.9rem;
+  }
+}
+
+
+// LEFT AND RIGHT SIDEBAR (EXPLORER AND TOC) //
+
+.explorer {
+  // This targets the rotating arrow icon for the folder
+  .fold {
+    // Default is 0.3s. Change this to a smaller value.
+    // Try 0.1s for a very fast animation.
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Make the folder triangle icon smaller */
+.folder-icon {
+  width: 0.6rem;  /* Default is 0.8rem */
+  height: 0.6rem; /* Default is 0.8rem */
+}
+
+/* 1. Hides the "Explorer" folder button */
+#explorer > button.folder-title#explorer-title {
+  display: none;
+}
+
+/* 2. Removes the nesting visuals (border and margin) from the file list */
+#explorer > ul#explorer-ul {
+  border-left: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* 1. Remove bold styling from ALL folder titles */
+.folder-container .folder-title {
+  font-weight: normal;
+}
+
+/* 2. Reduce font size for ONLY top-level folder titles */
+.explorer-content > .explorer-ul > li > .folder-container .folder-title {
+  font-size: 0.9rem; /* Default is 0.95rem. Adjust as you like */
+}
+
+.explorer-content ul li>a {
+  font-weight: normal;
+
+    &:hover {
+    color: #E07A5F;
+  }
+}
+
+// Table of Contents 
+
+/* 1. Remove bold styling from ALL ToC links and add hover color */
+/* This mimics your '.explorer-content ul li > a' rule */
+
+/* Target the 'Table of Contents' title text */
+button.toc-header h3 {
+  font-size: 0.9rem; /* Default is 1rem */
+}
+
+.toc ul li > a {
+  font-weight: normal;
+  font-size: 0.9rem;
+
+  &:hover {
+    color: #E07A5F;
+  }
+}
+
+// SPECIAL TEXT STYLES
+
+//Game Status
+
+.game-status {
+  font-size: 1rem;
+  color: var(--tertiary)
+}
+
+/*
+ * Horizontal "Pill" Layout for Tags on Folder Pages
+ */
+.folder-page .tags {
+  list-style-type: none; // Removes the bullets
+  padding-left: 0; // Removes the default list indentation
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; // Allows tags to wrap to the next line
+  gap: 0.5rem; // Adds spacing between tags
+
+  // Style the individual tag link
+  li a.tag {
+    display: block;
+    background-color: var(--gray); // Use your theme's colors
+    color: var(--dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem; // Makes it pill-shaped
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    &:hover {
+      background-color: var(--secondary); // Hover color
+      color: var(--light);
+    }
+  }
+
+  // Remove the default list-item margin
+  li {
+    margin: 0;
+  }
+}
+
+// Index tags spacing
+
+.section>.tags { /* the element was ul.tags */
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+
+ul.tags li { /* the element was li */
+  white-space: nowrap;
+  display: inline-block;
+  width: fit-content;
+  max-width: none;
+  flex-shrink: 0;
+}
+
+// GRID
+
+// 1. Define the grid container
+.homepage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // Creates a responsive grid
+  gap: 1.25rem; // Sets the spacing between cards
+  margin-top: 2rem;
+}
+
+// 2. Style the cards
+.grid-card {
+  display: block;
+  // highlight-start
+  padding: 1rem; // Increased padding (was 1rem 1.25rem)
+  text-align: center; // Center-aligns the content
+  // highlight-end
+  border-radius: 8px;
+  background-color: var(--lightgray);
+  border: 1px solid var(--gray);
+  color: var(--dark);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  // Style the text inside
+  h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--dark); // Heading color
+  }
+
+  p {
+    margin: 0;
+    color: var(--darkgray); // Body text color
+    font-size: 0.9rem;
+  }
+
+  // 3. Add hover effects
+  &:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-2px); // Lifts the card slightly
+
+    h3, p {
+      color: var(--light); // Make text light on hover
+    }
+  }
+}
+
