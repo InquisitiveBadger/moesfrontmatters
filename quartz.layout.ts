@@ -20,16 +20,19 @@ interface MyFileNode {
 
 const customExplorerSort: Options["sortFn"] = (a, b) => {
   // define everything inside so .toString() serialization works client-side
-  const preferred = ["case studies", "games", "marketing", "film & tv", "digital garden"]
+  const preferred = ["games", "marketing", "film & tv", "case studies", "digital garden"]
   const priority = new Map(preferred.map((n, i) => [n, i]))
+
+   const aName = a.displayName.toLowerCase()
+  const bName = b.displayName.toLowerCase()
 
   // keep folders before files (docs default)
   if (a.isFolder !== b.isFolder) return b.isFolder ? -1 : 1
 
-  // preferred order among folders
-  if (a.isFolder && b.isFolder) {
-    const ap = priority.get(a.displayName.toLowerCase()) ?? Infinity
-    const bp = priority.get(b.displayName.toLowerCase()) ?? Infinity
+   // NEW: preferred order among specific files (Games, Marketing, Film & TV)
+  if (!a.isFolder && !b.isFolder) {
+    const ap = priority.get(aName) ?? Infinity
+    const bp = priority.get(bName) ?? Infinity
     if (ap !== bp) return ap - bp
   }
 
@@ -91,7 +94,7 @@ export const defaultContentPageLayout: PageLayout = {
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
-    Component.Graph()
+    // Component.Graph()
   ],
 }
 

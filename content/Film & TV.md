@@ -4,7 +4,7 @@ aliases:
 permalink: /film-and-tv
 description: Screenwriting portfolio featuring feature screenplays, television pilots, and produced short films, including creative inspiration analysis and production process documentation for each project.
 tags: 
-modified-date: Friday, November 14th 2025, 12:38:44 am
+modified-date: Friday, November 14th 2025, 4:33:52 am
 created-date: Wednesday, November 12th 2025, 1:46:16 am
 draft: 
 ---
@@ -15,11 +15,20 @@ draft:
 
  A selection of work I’ve produced. In addition to other roles across the development/production value chain, I've worked as a consultant for production companies, grants bodies, financiers and equity investors in Canada, US, and the Arabian Gulf. 
 
-> [!writing-samples] Check out [[moes-frontmatters/Writing Samples|Writing Samples]] for scenes from features and TV pilots.
+> [!story] Check out[[Film & TV Script Samples]]for scenes from features and TV pilots.
 
 For coverage samples (that I wrote), reach out at <span class="email-link">moe[at]moesfrontmatters.com</span>
 
-### Productions
+## Productions
+
+### **Prom Night**
+
+### **Harriet**
+
+### **Bark**
+
+### **Desire**
+
 
 %% - ![[promnight_poster.png]] 
 - ![[Harriet_Poster.jpg]] %%

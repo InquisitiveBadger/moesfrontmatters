@@ -2,12 +2,12 @@
 title: Games
 aliases: 
 permalink: /games
+description:
 tags: game-writing
-modified-date: Friday, November 14th 2025, 12:35:56 am
+modified-date: Friday, November 14th 2025, 4:37:54 am
 created-date: Sunday, November 9th 2025, 2:53:35 am
 draft: 
 ---
-
 ## Frontmatters
 
 
@@ -17,7 +17,7 @@ See[[index_2#^a8bbee|Artifacts]]for individual game writing pieces. (***NOTE: th
 
 See[[Games#^1a1e26|Projects in Active Development]]for my work at start-up studios.
 
-> [!story]- Interested in seeing film & tv script samples?
+> [!story]- Looking for film & tv script samples?
 > Check out {LINK TO GR} and {LINK TO TANGLEWOOD}
 
 ---
@@ -25,7 +25,7 @@ See[[Games#^1a1e26|Projects in Active Development]]for my work at start-up studi
 ## Artifacts
 ### **Cinematics & Cutscenes**
 
-##### [[ollie_oxenfree_cinematic_old_dog_new_tricks.pdf|“New Dog, Old Tricks”]](Cinematic, 3 pages)
+##### [[ollie_oxenfree_cinematic_old_dog_new_tricks.pdf|“New Dog, Old Tricks”]] (Cinematic, 3 pages)
 
 > From[[Ollie Oxenfree]]| AAA | Sci-Fi, Fantasy
 
@@ -33,7 +33,7 @@ A young technician and her robotic dog chase a lead on her missing brother, unco
 
 > [!accolade] Placed Runner-Up (top 10 out of 50) in ELVTR’s Game Writing Competition. 
 
-##### [[samsaras_edge_cinematic_a_visit_to_the_magistrate.pdf|“A Visit to the Magistrate”]](Cinematic, 3.5 pages)
+##### **[[samsaras_edge_cinematic_a_visit_to_the_magistrate.pdf|“A Visit to the Magistrate”]]**(Cinematic, 3.5 pages)
 
 > From[[SamSara's Edge]]| Sci-Fi, Dark Comedy
 
@@ -91,6 +91,5 @@ A cozy endless runner where every rescue helps rebuild a community destroyed by 
 > **Roles**: Level Designer | Astral Door Gaming
 
 A 2D Metroidvania where you play as a shadow in an otherworldly realm where you must battle hostile creatures and deadly light hazards in order to reunite with your lost body.
-
 
 ---

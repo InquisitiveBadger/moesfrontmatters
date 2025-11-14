@@ -130,7 +130,7 @@ hr {
 // ---
 :root[saved-theme="light"] {
   // Base Colors
-  --light: #F2F0E5; // from minimal-style@@bg1@@light
+  --light: #FFFCF0; // from minimal-style@@bg1@@light
   --lightgray: #F2F0E5; // from minimal-style@@bg2@@light
   --gray: #A6A59E; // from minimal-style@@ui2@@light
   --darkgray: #100F0F; // from minimal-style@@tx1@@light
@@ -157,12 +157,18 @@ hr {
   // Specific Element Colors
   h1 { color: #100F0F; }
   h2 { color: #79B3C3; }
-  h3 { color: #575653; }
-  h4 { color: #878580; }
-  h5 { color: #A6A59E; }
+  h3 { color: #343331; } 
+  h4 { color: #575653; } 
+  h5 { color: #878580; }
 
   strong { color: #100F0F; }
   em { color: #1C1B1A; }
+
+  blockquote {
+    color: #79B3C3;
+    border-color: #79B3C3;
+    background-color: var(--lightgray);
+  }
 
   a.tag-link {
     color: #6F6E69;
@@ -227,13 +233,11 @@ h3 {
 }
 h4 {
   font-size: 1.25rem;
-  // font-weight: normal;
   margin-bottom: 0.5em;
 }
 h5 {
   font-size: 1.125rem;
-  font-weight: normal;
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 h6 {
   font-size: 1rem;
@@ -247,9 +251,19 @@ p {
 }
 
 // BLOCKQUOTES
-blockquote {
+  blockquote {
   font-style: italic; // from minimal-style@@blockquote-font-style
   border-left-width: 3px; // from minimal-style@@blockquote-border-thickness
+}
+
+// CALLOUTS
+
+.callout {
+  color: var(--darkgray)
+}
+
+.callout-title {
+ padding: 0.4rem 0;
 }
 
 // LISTS
@@ -339,14 +353,6 @@ a.internal.broken {
   opacity: 0.7;
 }
 
-.sidebar.left {
-
-  li {
-    font-size: 0.9rem;
-  }
-}
-
-
 // LEFT AND RIGHT SIDEBAR (EXPLORER AND TOC) //
 
 .explorer {
@@ -389,18 +395,28 @@ a.internal.broken {
 }
 
 /* 2. Reduce font size for ONLY top-level folder titles */
-.explorer-content > .explorer-ul > li > .folder-container .folder-title {
-  font-size: 0.9rem; /* Default is 0.95rem. Adjust as you like */
-}
+
 
 .explorer-content ul li>a {
   font-weight: normal;
-
+    // margin-left: 15px;
+    font-size: 0.9rem;
     &:hover {
     color: #E07A5F;
   }
+  &[data-for="Film--and--TV"]{
+    font-size: 1rem;
+    margin-left: 15px;
+  }
+  &[data-for="Marketing"]{
+    font-size: 1rem;
+    margin-left: 15px;
+  }
+  &[data-for="Games"]{
+    font-size: 1rem;
+    margin-left: 15px;
+  }
 }
-
 // Table of Contents 
 
 /* 1. Remove bold styling from ALL ToC links and add hover color */
