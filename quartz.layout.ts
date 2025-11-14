@@ -20,7 +20,7 @@ interface MyFileNode {
 
 const customExplorerSort: Options["sortFn"] = (a, b) => {
   // define everything inside so .toString() serialization works client-side
-  const preferred = ["games", "marketing", "film & tv", "digital garden"]
+  const preferred = ["case studies", "games", "marketing", "film & tv", "digital garden"]
   const priority = new Map(preferred.map((n, i) => [n, i]))
 
   // keep folders before files (docs default)

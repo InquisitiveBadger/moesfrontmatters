@@ -1,11 +1,11 @@
 ---
 title: Games
 aliases: 
-permalink:
+permalink: /games
 tags: game-writing
-modified-date: Thursday, November 13th 2025, 10:46:47 pm
+modified-date: Friday, November 14th 2025, 12:35:56 am
 created-date: Sunday, November 9th 2025, 2:53:35 am
-publish: true
+draft: 
 ---
 
 ## Frontmatters
@@ -15,9 +15,9 @@ See[[index_2#^a8bbee|Artifacts]]for individual game writing pieces. (***NOTE: th
 
 > To see all artifacts of a particular project, click on the project title in a blue highlight
 
-See[[Games/index#^1a1e26|Projects in Active Development]]for my work at start-up studios.
+See[[Games#^1a1e26|Projects in Active Development]]for my work at start-up studios.
 
-> [!info]- Interested in seeing film & tv script samples?
+> [!story]- Interested in seeing film & tv script samples?
 > Check out {LINK TO GR} and {LINK TO TANGLEWOOD}
 
 ---
@@ -31,7 +31,7 @@ See[[Games/index#^1a1e26|Projects in Active Development]]for my work at start-up
 
 A young technician and her robotic dog chase a lead on her missing brother, uncovering something far stranger in an old woman’s house. A cinematic quest moment that blends dark humor, visual spectacle, and a major turning around Ollie and her missing brother. 
 
-> [!info] Placed Runner-Up (top 10 out of 50) in ELVTR’s Game Writing Competition. 
+> [!accolade] Placed Runner-Up (top 10 out of 50) in ELVTR’s Game Writing Competition. 
 
 ##### [[samsaras_edge_cinematic_a_visit_to_the_magistrate.pdf|“A Visit to the Magistrate”]](Cinematic, 3.5 pages)
 
@@ -49,7 +49,7 @@ A trial scene where a dysfunctional couple attempt to emotionally manipulate a s
 
 #### [[ollie_oxenfree_ollie_liviere_barksheet|Bio and Barksheet - Ollie Liviere]]
 
-> From[[Game Project Overview#Ollie Oxenfree Ollie Oxenfree|Ollie Oxenfree]]| Sci-Fi, Fantasy
+> From[[Digital Garden/The Otter Side#Ollie Oxenfree Ollie Oxenfree|Ollie Oxenfree]]| Sci-Fi, Fantasy
 
 Comprehensive character bio covering psychology, voice systems, relationship dynamics, moral framework, and formative backstory. They inform bark lines with VO direction, triggers, and firing conditions across stealth, combat, puzzle-solving, and AFK moments.
 
@@ -68,9 +68,12 @@ Howard the Duck barksheet for spec Insomniac game, with partner dynamics, escala
 The scourge of WWII British pilots, reimagined as a "Class B" biological parasite in a clinical alt 60s-era FBI profile. The creature is an environmental hazard with a high-risk-high-reward social mechanic where players can "employ" them as effective but erratically loyal agents for sabotage missions.
 
 #### [[Collectible - Joseph McCarthy’s Letter to President-Elect Daphne]]
+
 > From[[Grim Rock]]| Dark Fantasy, Historical Revisionism
 
 A post-game collectible in which Joseph McCarthy, a CIA Director in alt 60s America, criticizes a video game proposal and recommends a very McCarthyist course of action.
+
+
 
 ---
 

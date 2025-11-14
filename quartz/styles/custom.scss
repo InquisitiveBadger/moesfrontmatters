@@ -362,6 +362,7 @@ a.internal.broken {
 .folder-icon {
   width: 0.6rem;  /* Default is 0.8rem */
   height: 0.6rem; /* Default is 0.8rem */
+
 }
 
 /* 1. Hides the "Explorer" folder button */
@@ -379,6 +380,12 @@ a.internal.broken {
 /* 1. Remove bold styling from ALL folder titles */
 .folder-container .folder-title {
   font-weight: normal;
+}
+
+.folder-container .folder-icon {
+    &[data-folderpath="Games"]{
+    display: none;
+  }
 }
 
 /* 2. Reduce font size for ONLY top-level folder titles */

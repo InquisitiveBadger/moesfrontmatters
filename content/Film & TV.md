@@ -1,11 +1,12 @@
 ---
-title:
+title: Film & TV
 aliases: 
-permalink:
+permalink: /film-and-tv
+description: Screenwriting portfolio featuring feature screenplays, television pilots, and produced short films, including creative inspiration analysis and production process documentation for each project.
 tags: 
-modified-date: Wednesday, November 12th 2025, 1:46:34 am
+modified-date: Friday, November 14th 2025, 12:38:44 am
 created-date: Wednesday, November 12th 2025, 1:46:16 am
-publish: true
+draft: 
 ---
 
 ## Frontmatters

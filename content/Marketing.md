@@ -1,13 +1,13 @@
 ---
 title: Marketing
-aliases: Marketing
-permalink: 
-description: index for Marketing section
+aliases: 
+permalink: /marketing
+description: 
 tags: []
-modified-date: Wednesday, November 12th 2025, 3:25:41 am
+modified-date: Friday, November 14th 2025, 12:42:00 am
 created-date: Thursday, November 6th 2025, 10:19:01 pm
-publish: true
 draft:
+publish: true
 ---
 
 ## Frontmatters
