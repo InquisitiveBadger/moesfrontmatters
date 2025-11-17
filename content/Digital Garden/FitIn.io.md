@@ -1,12 +1,12 @@
 ---
 title: FitIn.io
 aliases: 
-permalink: /projects/fitin.io
+permalink:
 description:
 tags:
-modified-date: Sunday, November 9th 2025, 1:23:16 am
+modified-date: Friday, November 14th 2025, 3:46:08 pm
 created-date: Tuesday, September 23rd 2025, 6:13:52 pm
-publish: true
+draft:
 ---
 
 ## Frontmatter

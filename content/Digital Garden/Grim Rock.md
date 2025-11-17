@@ -4,9 +4,9 @@ aliases:
 permalink: 
 description:
 tags:
-modified-date: Sunday, November 9th 2025, 2:44:23 am
+modified-date: Friday, November 14th 2025, 3:46:32 pm
 created-date: Friday, September 19th 2025, 5:46:53 am
-publish: true
+draft:
 ---
 
 ### [[Grim Rock]]

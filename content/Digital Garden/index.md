@@ -1,12 +1,12 @@
 ---
 title: Digital Garden
 aliases:
-permalink: 
+permalink: /digital-garden
 description: 
 tags:
-modified-date: Wednesday, November 12th 2025, 1:18:50 am
+modified-date: Friday, November 14th 2025, 3:44:10 pm
 created-date: Thursday, November 6th 2025, 10:31:12 pm
-publish: true
+draft:
 ---
 
 ## Frontmatters

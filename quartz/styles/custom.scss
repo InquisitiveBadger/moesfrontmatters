@@ -20,18 +20,15 @@
   // Base Colors
   --light: #1C1B1A; // from minimal-style@@bg1@@dark
   --lightgray: #282726; // from minimal-style@@bg2@@dark
-  --darkestgray: #343331;
   --gray: #575653; // from minimal-style@@ui2@@dark
-  --darkergray: #878580;
   --darkgray: #CECDC3; // from minimal-style@@tx1@@dark
+  --darkergray: #878580;
+  --darkestgray: #343331;
   --dark: #FFFCF0; // from minimal-style@@sp1@@dark
   --secondary: #79B3C3; // from minimal-style@@ax1@@dark
   --tertiary: #E07A5F; // from minimal-style@@ax2@@dark
   --highlight: #403E3C; // from minimal-style@@hl1@@dark
 
-
-  // Text Colors
-  --textHighlight: #b3aa0288; // Your original value
 
   // Link Colors
   --secondary: #79B3C3; // Mapped to link-color
@@ -63,10 +60,11 @@
   strong { color: #CECDC3; }
   em { color: #B7B5AC; }
 
-  blockquote {
-    color: #79B3C3;
-    border-color: #79B3C3;
-    background-color: #262A2B;
+blockquote {
+    color: var(--secondary);
+    border-color: var(--secondary);
+    background-color: var(--lightgray);
+
   }
 
   // Tags
@@ -103,21 +101,6 @@
 }
 
 // LAYOUT
-
-// Grid
-  .grid-card {
-    background-color: var(--dark);
-    border-color: var(--gray);
-
-    &:hover {
-      background-color: var(--secondary);
-      border-color: var(--secondary);
-
-      h3, p {
-        color: var(--dark);
-      }
-    }
-  }
 
 // Divider
 
@@ -157,19 +140,29 @@ hr {
   // Specific Element Colors
   h1 { color: #100F0F; }
   h2 { color: #79B3C3; }
-  h3 { color: #575653; }
-  h4 { color: #878580; }
-  h5 { color: #A6A59E; }
+  h3 { color: #343331; }
+  h4 { color: #575653; }
+  h5 { color: #878580; }
 
   strong { color: #100F0F; }
   em { color: #1C1B1A; }
 
+
+
+
   a.tag-link {
-    color: #6F6E69;
-    background: #E6E4D9;
+    color: var(--lightgray);
+    background: var(--darkergray);
     &:hover {
       background: #205EA6;
     }
+  }
+  
+blockquote {
+    color: var(--secondary);
+    border-color: var(--secondary);
+    background-color: var(--lightgray);
+
   }
 
   input[type="checkbox"] {
@@ -189,20 +182,22 @@ hr {
   background-color: var(--highlight)
 }
 
+
+
 // Grid
-  .grid-card {
-    background-color: var(--dark);
-    border-color: var(--gray);
+  // .grid-card {
+  //   background-color: var(--dark);
+  //   border-color: var(--gray);
 
-    &:hover {
-      background-color: var(--secondary);
-      border-color: var(--secondary);
+  //   &:hover {
+  //     background-color: var(--secondary);
+  //     border-color: var(--secondary);
 
-      h3, p {
-        color: var(--dark);
-      }
-    }
-  }
+  //     h3, p {
+  //       color: var(--dark);
+  //     }
+  //   }
+  // }
 
 // ---
 // 3. TYPOGRAPHY, LAYOUT, AND GENERAL STYLES
@@ -248,8 +243,22 @@ p {
 
 // BLOCKQUOTES
 blockquote {
+    // color: var(--secondary);
+    // border-color: var(--secondary);
+    // background-color: var(--lightgray);
   font-style: italic; // from minimal-style@@blockquote-font-style
   border-left-width: 3px; // from minimal-style@@blockquote-border-thickness
+}
+
+// CALLOUTS
+
+
+.callout {
+  color: var(--darkgray)
+}
+
+.callout-title {
+ padding: 0.4rem 0;
 }
 
 // LISTS
@@ -399,6 +408,16 @@ a.internal.broken {
     &:hover {
     color: #E07A5F;
   }
+
+  &[data-for="Games"]{
+    margin-left:14px;
+  }
+  &[data-for="Marketing"]{
+    margin-left:14px;
+  }
+  &[data-for="Film--and--TV"]{
+    margin-left:14px;
+  }
 }
 
 // Table of Contents 
@@ -480,49 +499,91 @@ ul.tags li { /* the element was li */
 
 // GRID
 
-// 1. Define the grid container
-.homepage-grid {
+.film-tv-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // Creates a responsive grid
-  gap: 1.25rem; // Sets the spacing between cards
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); // Creates a responsive grid
+  gap: 3rem; // Sets the spacing between cards
   margin-top: 2rem;
 }
 
-// 2. Style the cards
-.grid-card {
-  display: block;
-  // highlight-start
-  padding: 1rem; // Increased padding (was 1rem 1.25rem)
-  text-align: center; // Center-aligns the content
-  // highlight-end
-  border-radius: 8px;
-  background-color: var(--lightgray);
-  border: 1px solid var(--gray);
-  color: var(--dark);
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  // Style the text inside
-  h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--dark); // Heading color
-  }
-
-  p {
-    margin: 0;
-    color: var(--darkgray); // Body text color
-    font-size: 0.9rem;
-  }
-
-  // 3. Add hover effects
-  &:hover {
-    background-color: var(--secondary);
-    border-color: var(--secondary);
-    transform: translateY(-2px); // Lifts the card slightly
-
-    h3, p {
-      color: var(--light); // Make text light on hover
-    }
-  }
+/* Each grid cell = one project (card + text) */
+.film-tv-item {
+  display: flex;
+  flex-direction: column;
 }
 
+/* Base card */
+.grid-card {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--dark);
+  border: 1px solid var(--gray);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Project cards with poster images */
+.grid-card.grid-card-project {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Dark overlay for readability, fades on hover */
+.grid-card.grid-card-project::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.55)
+  );
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out;
+  pointer-events: none;
+}
+
+.grid-card.grid-card-project:hover::before {
+  opacity: 0;
+}
+
+.grid-card.grid-card-project:hover {
+  border-color: var(--secondary);
+}
+
+/* Text under each card */
+.film-tv-item h4 {
+  margin-top: 0.75rem;
+  font-weight: normal;
+}
+
+.film-tv-item p {
+  margin-top: 0.25rem;
+}
+
+/* Individual poster images */
+.gc-harriet {
+  background-image: url("/assets/harriet-poster.jpg");
+}
+
+.gc-prom-night {
+  background-image: url("/assets/prom-night-poster-2.png");
+}
+
+.gc-gourmade {
+  background-image: url("/assets/gourmade-poster.png");
+}
+
+.gc-bark {
+  background-image: url("/assets/bark-poster.png");
+}
+
+.gc-desire {
+  background-image: url("/assets/desire-poster.png");
+}

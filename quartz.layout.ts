@@ -23,22 +23,33 @@ const customExplorerSort: Options["sortFn"] = (a, b) => {
   const preferred = ["case studies", "games", "marketing", "film & tv", "digital garden"]
   const priority = new Map(preferred.map((n, i) => [n, i]))
 
-  // keep folders before files (docs default)
+  const aName = a.displayName.toLowerCase()
+  const bName = b.displayName.toLowerCase()
+
+  // keep files before folders (your current behavior)
   if (a.isFolder !== b.isFolder) return b.isFolder ? -1 : 1
 
-  // preferred order among folders
-  if (a.isFolder && b.isFolder) {
-    const ap = priority.get(a.displayName.toLowerCase()) ?? Infinity
-    const bp = priority.get(b.displayName.toLowerCase()) ?? Infinity
+  // NEW: preferred order among specific files (Games, Marketing, Film & TV)
+  if (!a.isFolder && !b.isFolder) {
+    const ap = priority.get(aName) ?? Infinity
+    const bp = priority.get(bName) ?? Infinity
     if (ap !== bp) return ap - bp
   }
 
-  // fallback: natural alpha (also used for files)
+  // existing: preferred order among folders (Case Studies, Digital Garden, etc.)
+  if (a.isFolder && b.isFolder) {
+    const ap = priority.get(aName) ?? Infinity
+    const bp = priority.get(bName) ?? Infinity
+    if (ap !== bp) return ap - bp
+  }
+
+  // fallback: natural alpha (also used for non-preferred files/folders)
   return a.displayName.localeCompare(b.displayName, undefined, {
     numeric: true,
     sensitivity: "base",
   })
 }
+
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -91,7 +102,7 @@ export const defaultContentPageLayout: PageLayout = {
   right: [
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
-    Component.Graph()
+    // Component.Graph()
   ],
 }
 

@@ -1,7 +1,7 @@
 ---
 title: The Otter Side
 aliases: 
-permalink: /projects/the-otter-side
+permalink: 
 description:
 tags:
 modified-date: Wednesday, November 12th 2025, 3:09:31 am
